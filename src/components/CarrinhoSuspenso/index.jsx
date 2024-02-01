@@ -6,7 +6,7 @@ import Titulo from "@/components/Titulo";
 import CarrinhoContext from "@/context/CarrinhoContext";
 
 const CarrinhoSuspenso = () => {
-  const {carrinho} = useContext(CarrinhoContext);
+  const {carrinho, setCarrinho} = useContext(CarrinhoContext);
   return (
     <div
       className="offcanvas offcanvas-end text-bg-dark"
@@ -32,6 +32,7 @@ const CarrinhoSuspenso = () => {
       <div className="offcanvas-body">
         <ListaProdutosCarrinho
           carrinho={carrinho}
+          setCarrinho={setCarrinho}
         />
         {/* <TotalCarrinho valorTotalCarrinho={valorTotalCarrinho} /> */}
       </div>

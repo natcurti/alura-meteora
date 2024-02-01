@@ -30,7 +30,7 @@ const ItemCarrinhoSuspenso = ({
           <Botao
             variant="deleteItem"
             aria-label="Excluir"
-            onClick={() => removerProdutoCarrinho(itemCarrinho.id)}
+            onClick={() => removerProduto(itemCarrinho)}
           >
             delete_forever
           </Botao>

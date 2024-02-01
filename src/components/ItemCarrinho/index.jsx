@@ -29,7 +29,7 @@ const ItemCarrinho = ({
           <Botao
             variant="deleteItem"
             aria-label="Excluir"
-            handleClick={() => removerProdutoCarrinho(itemCarrinho.id)}
+            handleClick={() => removerProduto(itemCarrinho)}
           >
             delete_forever
           </Botao>
