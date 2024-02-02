@@ -3,13 +3,11 @@ import Botao from "@/components/Botao";
 import Quantidade from "@/components/Quantidade";
 import ValorFormatado from "@/components/ValorFormatado";
 import InfoItemCarrinho from "./InfoItemCarrinho";
+import { useCarrinhoContext } from "@/hooks/useCarrinhoContext";
 
-const ItemCarrinho = ({
-  itemCarrinho,
-  removerProdutoCarrinho,
-  adicionarProduto,
-  removerProduto,
-}) => {
+const ItemCarrinho = ({itemCarrinho}) => {
+  const {adicionarProduto, removerProduto, removerProdutoDoCarrinho} = useCarrinhoContext();
+
   return (
     <li key={itemCarrinho.id}>
       <>
@@ -29,7 +27,7 @@ const ItemCarrinho = ({
           <Botao
             variant="deleteItem"
             aria-label="Excluir"
-            handleClick={() => removerProduto(itemCarrinho)}
+            handleClick={() => removerProdutoDoCarrinho(itemCarrinho)}
           >
             delete_forever
           </Botao>

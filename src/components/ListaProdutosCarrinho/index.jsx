@@ -1,40 +1,10 @@
 import ItemCarrinhoSuspenso from "@/components/CarrinhoSuspenso/ItemCarrinhoSuspenso";
 import ItemCarrinho from "@/components/ItemCarrinho";
 import { useLocation } from "react-router-dom";
+import { useCarrinhoContext } from "../../hooks/useCarrinhoContext";
 
-const ListaProdutosCarrinho = ({carrinho, setCarrinho}) => {
-
-  const removerProduto = (produtoParaRemover) => {
-
-    if(produtoParaRemover.quantidade > 1){
-      setCarrinho(prev => prev.map((item) => {
-        if(item.id === produtoParaRemover.id){
-          item.quantidade -= 1;
-          return item;
-        }
-      }))
-    }
-
-    if(produtoParaRemover.quantidade === 1){
-      setCarrinho(prev => prev.map((item, index) => {
-        if(item.id === produtoParaRemover.id){
-          prev.splice(index, 1);
-          return prev;
-        }
-      }))
-    }
-  }
-
-  // if(itemDoCarrinho.id === produtoParaRemover.id) {
-  //   console.log(itemDoCarrinho)
-  // }
-  // if(produtoParaRemover.quantidade > 1){
-  //   produtoParaRemover.quantidade -= 1;
-  // } 
-  // produtoParaRemover.quantidade = 0;
-  // carrinho.splice(itemDoCarrinho, 1);      
-
-
+const ListaProdutosCarrinho = ({carrinho}) => {
+  const {removerProduto} = useCarrinhoContext();
   const location = useLocation();
   return (
     <ul className="list-unstyled">
